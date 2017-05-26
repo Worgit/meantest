@@ -1,0 +1,12 @@
+<form (submit)="submit(formData)" #formData = "ngForm">
+  <h5>Add a new product</h5>
+  <label> Name: <input type="text" name="name" ngModel></label>
+  <label> Image url: <input type="text" name="link" ngModel></label>
+  <label> Description: <input type="text" name="description" ngModel></label>
+  <label> Initial Quality: <input type="number" name="quantity" ngModel></label>
+  <input type="submit" value = "Create">
+</form>
+<div *ngFor = "let item of products">
+  <img src = {{item.link}}>
+  <p>{{item.name}}: {{item.quantity}} left</p>
+</div>

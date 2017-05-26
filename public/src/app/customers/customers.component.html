@@ -1,0 +1,18 @@
+<h5>Add a new Customer</h5>
+<form (submit) = "submit(formData)" #formData = "ngForm">
+  <input type = "text" name = "name" ngModel>
+  <input type = "submit">
+</form>
+<p *ngFor = "let error of errors">{{error}}</p>
+<table>
+  <tr>
+    <th>Customer Name</th>
+    <th>Created Date</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor = "let customer of customers">
+    <td>{{customer.name}}</td>
+    <td>{{customer.createdAt | date: 'mediumDate'}}</td>
+    <td><button (click) = 'delete(customer._id)'>Delete</button></td>
+  </tr>
+</table>

@@ -1,0 +1,37 @@
+<h3>Dashboard</h3>
+<h5>Products</h5>
+<div *ngFor = "let item of products">
+  <img src = {{item.link}}>
+  <p>{{item.name}}: {{item.quantity}} left</p>
+</div>
+<a [routerLink]="['../products']">More...</a>
+<h5>Customers</h5>
+<table>
+  <tr>
+    <th>Customer Name</th>
+    <th>Created Date</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor = "let customer of customers">
+    <td>{{customer.name}}</td>
+    <td>{{customer.createdAt | date: 'mediumDate'}}</td>
+    <td><button (click) = 'delete(customer._id)'>Delete</button></td>
+  </tr>
+</table>
+<a [routerLink]="['../customers']">More...</a>
+<h5>Orders</h5>
+<table>
+  <tr>
+    <th>Customer Name</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Date</th>
+  </tr>
+  <tr *ngFor = "let order of orders">
+    <td>{{order.customer.name}}</td>
+    <td>{{order.product.name}}</td>
+    <td>{{order.quantity}}</td>
+    <td>{{order.createdAt | date: 'mediumDate'}}</td>
+  </tr>
+</table>
+<a [routerLink]="['../orders']">More...</a>
